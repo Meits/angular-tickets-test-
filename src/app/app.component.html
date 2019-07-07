@@ -28,28 +28,12 @@
           <div class="filter-item">
             <h4>Количество пересадок</h4>
             <div class="checkboxes">
-                <mz-checkbox-container>
+                <mz-checkbox-container *ngFor="let filter of filters; index as i">
                     <input mz-checkbox
-                      [label]="'Без пересадок'"
-                      id="filter_checkbpx1"
-                      type="checkbox">
-                </mz-checkbox-container>
-                <mz-checkbox-container>
-                    <input mz-checkbox
-                      [label]="'1 пересадка'"
-                      id="filter_checkbpx2"
-                      type="checkbox">
-                </mz-checkbox-container>
-                <mz-checkbox-container>
-                    <input mz-checkbox
-                      [label]="'2 пересадки'"
-                      id="filter_checkbpx3"
-                      type="checkbox">
-                </mz-checkbox-container>
-                <mz-checkbox-container>
-                    <input mz-checkbox
-                      [label]="'3 пересадки'"
-                      id="filter_checkbpx4"
+                      [label]="filter.title"
+                      [id]="'filter_checkbpx' + i"
+                      (change)="filterChange($event)"
+                      [value]="filter.value"
                       type="checkbox">
                 </mz-checkbox-container>
             </div>
