@@ -4,13 +4,25 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { MzButtonModule, MzInputModule, MzNavbarModule, MzCardModule, MzCheckboxModule, MzSelectModule  } from 'ngx-materialize';
+import { IndexComponent } from './index/index.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MzButtonModule,
+    MzInputModule,
+    MzNavbarModule,
+    MzCardModule,
+    MzCheckboxModule,
+    MzSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
