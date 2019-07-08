@@ -1,0 +1,31 @@
+<aside class="sidebar">
+
+  <div class="filter-item">
+    <h4>Валюта</h4>
+    <mz-select-container>
+        <select mz-select
+          id="options-select"
+        >
+        
+            <option >RUB</option>
+            <option >USD</option>
+            <option >EUR</option>
+          
+        </select>
+      </mz-select-container>
+  </div>
+
+  <div class="filter-item">
+    <h4>Количество пересадок</h4>
+    <div class="checkboxes">
+        <mz-checkbox-container *ngFor="let filter of filters; index as i">
+            <input mz-checkbox
+              [label]="filter.title"
+              [id]="'filter_checkbpx' + i"
+              (change)="filterChange($event)"
+              [value]="filter.value"
+              type="checkbox">
+        </mz-checkbox-container>
+    </div>
+  </div>
+</aside>

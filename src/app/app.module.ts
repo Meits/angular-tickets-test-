@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { MzButtonModule, MzInputModule, MzNavbarModule, MzCardModule, MzCheckboxModule, MzSelectModule  } from 'ngx-materialize';
 import { IndexComponent } from './index/index.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    TicketsComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

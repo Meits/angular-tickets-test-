@@ -11,16 +11,39 @@ export class IndexComponent implements OnInit {
 
   constructor(private ticketsService : TicketService) { }
   
-  tickets: Array<Ticket>;
+  ticketsSource: Array<Ticket>;
+  checkedFilters: Array<number>
 
   ngOnInit() {
     this.getTickets();
   }
 
+  onChanged(checkedFilters: Array<number>){
+      this.checkedFilters = checkedFilters;
+  }
+
+  get tickets() {
+    let tmp = [];
+    
+    if(this.checkedFilters && this.checkedFilters.length > 0) {
+      for(var i=0 ; i < this.ticketsSource.length; i++) {
+        console.log(this.ticketsSource[i].stops);
+        console.log(this.checkedFilters);
+        if(this.checkedFilters.indexOf(this.ticketsSource[i].stops) >= 0) {
+          tmp.push(this.ticketsSource[i]);
+        }
+      }
+    }
+    else {
+      tmp = this.ticketsSource;
+    }
+    return  tmp;
+  }
+
   getTickets () {
     this.ticketsService.getTickets().subscribe((data: any) =>  {
       if(data.tickets) {
-        this.tickets = data.tickets;
+        this.ticketsSource = data.tickets;
       }
     });
   }
