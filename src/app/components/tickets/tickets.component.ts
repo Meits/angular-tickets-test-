@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
+import { MzModalService } from 'ngx-materialize';
+import { OrderTicketComponent } from '../modals/order-ticket/order-ticket.component';
 
 @Component({
   selector: 'app-tickets',
@@ -13,9 +15,13 @@ export class TicketsComponent implements OnInit {
 
   @Input() tickets: Array<Ticket>; string;
   
-  constructor() { }
+  constructor(private modalService: MzModalService) { }
 
   ngOnInit() {
+  }
+
+  buttonClickhandler(ind) {
+    this.modalService.open(OrderTicketComponent,{});
   }
 
 }
