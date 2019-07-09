@@ -14,6 +14,7 @@ import { OrderTicketComponent } from '../modals/order-ticket/order-ticket.compon
 export class TicketsComponent implements OnInit {
 
   @Input() tickets: Array<Ticket>; string;
+  orderTicket : Ticket;
   
   constructor(private modalService: MzModalService) { }
 
@@ -21,7 +22,11 @@ export class TicketsComponent implements OnInit {
   }
 
   buttonClickhandler(ind) {
-    this.modalService.open(OrderTicketComponent,{});
+    if(this.tickets[ind]) {
+      this.orderTicket = this.tickets[ind];
+    }
+    console.log(this.orderTicket);
+    this.modalService.open(OrderTicketComponent,{ticket : this.orderTicket});
   }
 
 }

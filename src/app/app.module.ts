@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketsComponent } from './components/tickets/tickets.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { OrderTicketComponent } from './components/modals/order-ticket/order-ticket.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { OrderTicketComponent } from './components/modals/order-ticket/order-tic
     MzSelectModule,
     HttpClientModule,
     MzModalModule,
-    MzToastModule
+    MzToastModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

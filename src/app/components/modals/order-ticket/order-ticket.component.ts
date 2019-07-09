@@ -16,7 +16,10 @@ export class OrderTicketComponent extends MzBaseModal implements OnInit {
 
   @Input() ticket: Ticket;
 
+  count: Number = 1;
+
   ngOnInit() {
+    console.log(this.ticket)
   }
 
 }
