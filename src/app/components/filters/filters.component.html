@@ -5,12 +5,9 @@
     <mz-select-container>
         <select mz-select
           id="options-select"
+          (change)="filterChange($event,'currency')"
         >
-        
-            <option >RUB</option>
-            <option >USD</option>
-            <option >EUR</option>
-          
+            <option [value]="currency.value" *ngFor="let currency of currencies;" >{{currency.title}}</option>
         </select>
       </mz-select-container>
   </div>
@@ -22,7 +19,7 @@
             <input mz-checkbox
               [label]="filter.title"
               [id]="'filter_checkbpx' + i"
-              (change)="filterChange($event)"
+              (change)="filterChange($event,'checkbox')"
               [value]="filter.value"
               type="checkbox">
         </mz-checkbox-container>

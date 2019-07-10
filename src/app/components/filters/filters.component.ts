@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Filter } from 'src/app/models/filter';
+import { Currency } from 'src/app/models/currency';
 
 @Component({
   selector: 'app-filters',
@@ -36,19 +37,41 @@ export class FiltersComponent implements OnInit {
     }
   ];
 
-
-  filterChange (values:any) {
-    
-    if(values.currentTarget.checked) {
-      this.checkedFilters.push(parseInt(values.currentTarget.value));
+  currencies : Array<Currency> = [
+    {
+      title: "RUB",
+      value: "1"
+    },
+    {
+      title: "USD",
+      value: "1"
+    },
+    {
+      title: "EUR",
+      value: "1"
     }
-    else {
-      for(var i=0 ; i < this.checkedFilters.length; i++) {
-          if(this.checkedFilters[i] == values.currentTarget.value) {
-            this.checkedFilters.splice(i,1);
+  ];
+
+  checkedCurrency: Currency;
+
+  filterChange (values:any, type:string) {
+    
+    if(type = 'checkbox') {
+      if(values.currentTarget.checked) {
+        this.checkedFilters.push(parseInt(values.currentTarget.value));
+      }
+      else {
+        for(var i=0 ; i < this.checkedFilters.length; i++) {
+            if(this.checkedFilters[i] == values.currentTarget.value) {
+              this.checkedFilters.splice(i,1);
+          }
         }
       }
     }
+    else if(type='currency'){
+
+    }
+    
     this.onChanged.emit(this.checkedFilters);
   }
 
