@@ -57,7 +57,7 @@ export class FiltersComponent implements OnInit {
 
   filterChange (values:any, type:string) {
     
-    if(type = 'checkbox') {
+    if(type =='checkbox') {
       if(values.currentTarget.checked) {
         this.checkedFilters.push(parseInt(values.currentTarget.value));
       }
@@ -69,15 +69,17 @@ export class FiltersComponent implements OnInit {
         }
       }
     }
-    else if(type='currency'){
-      for(var i=0 ; i < this.currencies.length; i++) {
-        if(this.currencies[i].value == values.currentTarget.value) {
-          this.checkedCurrency = this.currencies[i];
-      }
-    }
-    }
+    else if(type=='currency'){
+      
+        if(this.currencies[values.currentTarget.value]) {
+          this.checkedCurrency = this.currencies[values.currentTarget.value];
+        }
     
-    this.onChanged.emit(this.checkedFilters, this.checkedCurrency);
+    }
+
+    //console.log(this.checkedCurrency);
+    
+    this.onChanged.emit(this.checkedFilters);
   }
 
 }

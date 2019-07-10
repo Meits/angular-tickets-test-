@@ -15,13 +15,16 @@ export class IndexComponent implements OnInit {
   ticketsSource: Array<Ticket>;
   checkedFilters: Array<number>
 
+  checkedCurrency: Currency;
+
   ngOnInit() {
     this.getTickets();
   }
 
   onChanged(checkedFilters: Array<number>, checkedCurrency: Currency){
       this.checkedFilters = checkedFilters;
-  }
+      this.checkedCurrency = checkedCurrency
+  };
 
   get tickets() {
     let tmp = [];
