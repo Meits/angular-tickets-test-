@@ -7,7 +7,7 @@
           id="options-select"
           (change)="filterChange($event,'currency')"
         >
-            <option [value]="currency.value" *ngFor="let currency of currencies;" >{{currency.title}}</option>
+            <option [value]="currency.value" *ngFor="let currency of currencies; index as i" >{{currency.title}}</option>
         </select>
       </mz-select-container>
   </div>

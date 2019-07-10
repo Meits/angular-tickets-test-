@@ -14,6 +14,7 @@ export class FiltersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.checkedCurrency = this.currencies[0];
   }
 
   checkedFilters: Array<number> = [];
@@ -69,10 +70,14 @@ export class FiltersComponent implements OnInit {
       }
     }
     else if(type='currency'){
-
+      for(var i=0 ; i < this.currencies.length; i++) {
+        if(this.currencies[i].value == values.currentTarget.value) {
+          this.checkedCurrency = this.currencies[i];
+      }
+    }
     }
     
-    this.onChanged.emit(this.checkedFilters);
+    this.onChanged.emit(this.checkedFilters, this.checkedCurrency);
   }
 
 }

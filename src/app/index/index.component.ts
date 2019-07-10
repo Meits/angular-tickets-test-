@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../models/ticket';
 import { TicketService } from '../ticket.service';
+import { Currency } from '../models/currency';
 
 @Component({
   selector: 'app-index',
@@ -18,7 +19,7 @@ export class IndexComponent implements OnInit {
     this.getTickets();
   }
 
-  onChanged(checkedFilters: Array<number>){
+  onChanged(checkedFilters: Array<number>, checkedCurrency: Currency){
       this.checkedFilters = checkedFilters;
   }
 
