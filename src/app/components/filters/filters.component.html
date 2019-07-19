@@ -1,6 +1,20 @@
 <aside class="sidebar">
 
   <div class="filter-item">
+    <h4>Поиск</h4>
+    <mz-input-container>
+      
+      <input mz-input
+        [label]="'Search'"
+        id="search-input"
+        length="150"
+        type="text"
+        [(ngModel)]="search"
+        >
+    </mz-input-container>
+  </div>
+
+  <div class="filter-item">
     <h4>Валюта</h4>
     <mz-select-container>
         <select mz-select

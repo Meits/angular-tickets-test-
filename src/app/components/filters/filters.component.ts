@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, DoCheck, OnChanges, AfterContentInit, AfterContentChecked, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { Filter } from 'src/app/models/filter';
 import { Currency } from 'src/app/models/currency';
 
@@ -7,17 +7,57 @@ import { Currency } from 'src/app/models/currency';
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.sass']
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent implements OnInit, DoCheck,
+OnChanges,
+AfterContentInit, 
+AfterContentChecked, 
+AfterViewChecked, 
+AfterViewInit {
 
+
+
+  ngOnChanges() {
+       
+    this.log(`OnChanges`);
+  }
+  ngDoCheck() {
+     
+    this.log(`ngDoCheck`);
+  }
+  ngAfterViewInit() {
+     
+    this.log(`ngAfterViewInit`);
+  }
+  ngAfterViewChecked() {
+     
+    this.log(`ngAfterViewChecked`);
+  }
+  ngAfterContentInit() {
+     
+    this.log(`ngAfterContentInit`);
+  }
+  ngAfterContentChecked() {
+     
+    this.log(`ngAfterContentChecked`);
+  }
+
+  private log(msg: string) {
+      console.log(this.count + ". " + msg);
+      this.count++;
+  }
+
+  
   @Output() onChanged = new EventEmitter<Array<number>>();
   
   constructor() { }
 
   ngOnInit() {
     this.checkedCurrency = this.currencies[0];
+    this.log(`ngOnInit`);
   }
 
   checkedFilters: Array<number> = [];
+  count:number=1;
 
   filters : Array<Filter>= [
     {

@@ -22,6 +22,7 @@ const routes: Routes = [
     path: 'product',
     component: ProductComponent
   },
+  { path: '**', component: ProductComponent }
 
 ];
 

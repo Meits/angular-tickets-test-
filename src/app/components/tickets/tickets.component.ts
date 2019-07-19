@@ -21,6 +21,8 @@ export class TicketsComponent implements OnInit {
   ngOnInit() {
   }
 
+  search : String;
+
   buttonClickhandler(ind) {
     if(this.tickets[ind]) {
       this.orderTicket = this.tickets[ind];
