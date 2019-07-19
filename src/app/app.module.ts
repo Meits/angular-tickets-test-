@@ -11,6 +11,9 @@ import { TicketsComponent } from './components/tickets/tickets.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { OrderTicketComponent } from './components/modals/order-ticket/order-ticket.component';
 import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { FormsModule } from '@angular/forms';
     IndexComponent,
     TicketsComponent,
     FiltersComponent,
-    OrderTicketComponent
+    OrderTicketComponent,
+    ProfileComponent,
+    AboutComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

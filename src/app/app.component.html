@@ -1,7 +1,11 @@
 <mz-navbar navbarClass="container">
   <a href="#" class="brand-logo">Tickets</a>
   <mz-navbar-item-container [align]="'right'">
-    <mz-navbar-item><a href="/">Home</a></mz-navbar-item>
+    <mz-navbar-item><a routerLink="/" routerLinkActive="active">Home</a></mz-navbar-item>
+    <mz-navbar-item><a routerLink="/about" routerLinkActive="active">About</a></mz-navbar-item>
+    <mz-navbar-item><a routerLink="/profile" routerLinkActive="active">Profile</a></mz-navbar-item>
+    <mz-navbar-item><a routerLink="/product" routerLinkActive="active">Product</a></mz-navbar-item>
+    
   </mz-navbar-item-container>
 </mz-navbar>
 <div class="container">
